@@ -3,6 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root   {
+    --colors-primary: #010B40;
+    --colors-secondary: #FEFEFC;
+    --colors-status:free: #358B1D;
+    --colors-status:occupied: #B71919;
+    --colors-status:partlyoccupied: #D37600
+}
+
+
+h1, h2 {
+    font-family: "REM", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
 
 body {
     background-color: yellow;
