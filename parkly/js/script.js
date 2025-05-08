@@ -1,5 +1,5 @@
 console.log("Hallo script.js");
-const parking_cards = document.querySelector('#parking_cards');
+const parking_cards = document.querySelector('#parking_cards'); 
 
 async function loadData() {
     const url = 'https://api.parkendd.de/Zuerich'; // mit korrekter API-URL ersetzen
@@ -34,3 +34,12 @@ parkplaetze.forEach(parkplatz => {
     parking_cards.appendChild(card);
 
 });
+
+
+//show leaflet map
+const map = L.map('map').setView([47.3769, 8.5417], 13); // Zürich Koordinaten
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap contributors, © CARTO'
+}).addTo(map);
+
