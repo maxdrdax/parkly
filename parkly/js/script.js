@@ -1,13 +1,14 @@
 //show leaflet map
 const map = L.map('map').setView([47.3769, 8.5417], 13); // Zürich Koordinaten
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png', {
+    minZoom: 12,
     maxZoom: 19,
     attribution: '© OpenStreetMap contributors, © CARTO'
 }).addTo(map);
 
 
 
-const parking_cards = document.querySelector('#parking_cards'); 
+// const parking_cards = document.querySelector('#parking_cards'); 
 
 async function loadData() {
     const url = 'https://api.parkendd.de/Zuerich'; // mit korrekter API-URL ersetzen
@@ -31,18 +32,20 @@ parkplaetze.forEach(parkplatz => {
     let total = parkplatz.total; // Gesamtanzahl der Plätze
     let adresse = parkplatz.address; // Adresse des Parkplatzes
     let coords = parkplatz.coords; // Koordinaten des Parkplatzes
+    let state = parkplatz.state; // Status des Parkplatzes
 
     // Erstelle ein neues div-Element für den Parkplatz
     const card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = `
         <h2>${name}</h2>
+        <p>Status: ${state}</p>
         <p>Freie Plätze: ${free}</p>
         <p>Gesamtplätze: ${total}</p>
         <p>Adresse: ${adresse}</p>
     `;
     // Füge das neue div-Element zum Container hinzu
-    parking_cards.appendChild(card);
+    // parking_cards.appendChild(card);
 
 });
 
@@ -50,7 +53,7 @@ const LeafIcon = L.Icon.extend({
     options: {
         iconSize:     [100, 100], // Adjusted to match the actual icon dimensions
         iconAnchor:   [22, 94],
-        popupAnchor:  [-3, -76],
+        popupAnchor:  [26, -65],
         // shadowUrl: 'PATH_TO_YOUR/leaf-shadow.png',
         shadowSize:   [50, 64],
         shadowAnchor: [4, 62]
@@ -71,9 +74,22 @@ parkplaetze.forEach(p => {
     icon = orangeIcon;
   }
 
+  document.querySelector('.leaflet-popup-content-wrapper');
+
+// let popupClass = 'popup-red';
+// if (p.free >= 100) {
+//   popupClass = 'popup-green';
+// } else if (p.free >= 40) {
+//   popupClass = 'popup-orange';
+// }
+
+
   if (p.coords) {
     L.marker([p.coords.lat, p.coords.lng], { icon })
       .addTo(map)
-      .bindPopup(`<strong>${p.name}</strong><br>${p.free} freie Plätze`);
+      .bindPopup(`<strong>${p.name}</strong><br>
+        Status: ${p.state} <br>
+        ${p.free} free spots<br>
+        Address: ${p.address}`);
   }
 });
