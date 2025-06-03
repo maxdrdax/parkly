@@ -10,10 +10,9 @@ body {
 }
 
 /* Styling Map */
-
 #map {
   height: 725px;
-  margin-bottom: 20px; /* Optional: adds some space below the map */
+  margin-bottom: 20px;
 }
 
 :root {
@@ -61,10 +60,9 @@ p {
 }
 
 /* Navigation */
-
 nav {
   display: flex;
-  align-items: center; /* Vertically centers the content */
+  align-items: center;
   height: 100px;
 }
 
@@ -73,11 +71,10 @@ nav {
   padding: 0 0 0 60px;
   display: flex;
   justify-content: center;
-  align-items: center; /* Ensures the logo image is vertically centered */
+  align-items: center;
 }
 
 /* Erklärung */
-
 .parking-status {
   display: flex;
   justify-content: space-around;
@@ -121,7 +118,6 @@ nav {
 }
 
 /* PopUp */
-
 .leaflet-popup {
   position: absolute;
   text-align: center;
@@ -250,7 +246,6 @@ nav {
   justify-content: center;
   width: 1.25rem;
   height: 1.25rem;
-  /* Optional: eine Umrandung für Klick-Fläche */
 }
 
 @media screen and (max-width: 768px) {
@@ -269,7 +264,7 @@ nav {
     align-items: start;
     flex-direction: column;
     margin: 0 auto;
-    gap: 1rem; /* Adds spacing between the parking-status elements */
+    gap: 1rem;
   }
 
   .footer {
@@ -279,11 +274,6 @@ nav {
 
   #map {
     height: 500px;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 300px; /* Optional: max width for larger screens */
   }
 
   .footer-left,
