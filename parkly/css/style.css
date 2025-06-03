@@ -342,13 +342,6 @@ nav {
     height: 600px !important;
   }
 
-  #parking_cards {
-    flex-direction: column;
-    gap: 15px;
-    padding: 0 10px;
-    align-items: center;
-  }
-
   footer.footer {
     flex-direction: column;
     gap: 10px;
